@@ -1,0 +1,140 @@
+body .container {
+    display: flex;
+    justify-content: center;
+    margin: 10.8rem 24.2rem;
+}
+
+body .container #calc {
+    width: 36rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+body .container #calc header {
+    display: flex;
+    flex-direction: column;
+}
+
+body .container #calc header .header-title {
+    display: flex;
+    flex-direction: row;
+}
+
+body .container #calc header .header-title h1 {
+    font-size:4.8rem;
+    font-weight: 700;
+    margin-right: 1rem;
+}
+
+body .container #calc header .header-title img {
+    width: 5rem;
+    height: 5rem;
+}
+
+body .container #calc header .header-description {
+
+    /* Flex properties */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Font properties */
+    font-weight: 200;
+    font-size: 2.4rem;
+
+    /* Structural properties */
+    width: 36rem;
+    height: 4.4rem;
+
+    /* General properties */
+    border-radius: 1rem;
+    background: linear-gradient(180deg, #FE0866 0%, #FF6254 100%);
+
+}
+
+body .container #calc #app {
+    display: flex;
+    flex-direction: column;
+    margin: 4rem 0rem;
+}
+
+body .container #calc #app #input-fieldset {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    width: 36rem;
+}
+
+body .container #calc #app #input-fieldset label {
+    font-size: 2.4rem;
+    font-weight: 200;
+    margin-bottom: 0.5rem;
+}
+
+body .container #calc #app #input-fieldset input {
+
+    /* Structural properties */
+    width: 36rem;
+    height: 6rem;
+    padding: 1.2rem 2rem;
+    margin-bottom: 2rem;
+
+    /* Font properties */
+    color: #868686;
+    font-weight: 200;
+    font-size: 2.4rem;
+
+    /* General properties */
+    border-radius: 1rem;
+    border: 3px solid #FF5F55;
+}
+
+body .container #calc #app #output-fieldset label {
+    font-size: 2.4rem;
+    font-weight: 200;
+    margin-bottom: 0.5rem;
+}
+
+body .container #calc #app #output-fieldset .input-block  {
+    display: flex;
+    position: relative;
+}
+
+body .container #calc #app #output-fieldset .input-block input {
+
+    /* Structural properties */
+    width: 36rem;
+    height: 6rem;
+    padding: 1.2rem 2rem;
+    padding-right: 6rem;
+    background-color: #443D63;
+
+    /* Font properties */
+    color: #6C689F;
+    font-weight: 200;
+    font-size: 2.4rem;
+
+    /* General properties */
+    border: none;
+    border-radius: 1rem;
+}
+
+body .container #calc #app #output-fieldset .input-block .clipboard {
+
+    /* Structural properties */
+    width: 2.7rem;
+    height: 3.1rem;
+    
+    /* Backgrund properties */
+    background-size: 100%;
+    background-image: url(/public/images/copy.svg);
+
+    /* Position proterties */
+    position: absolute;
+    top: 1.3rem;
+    right: 2rem;
+
+    /* General properties */
+    cursor: pointer;
+}
