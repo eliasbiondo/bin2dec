@@ -216,6 +216,32 @@ clipboard.addEventListener("click", copyToClipboard);
 // Implementing the copy to clipboard feature
 async function copyToClipboard() {
 
+    // Verifying if has no output value
+    if(!output.value) {
+        // Assigning the current notification how the calc.notifications value
+        let current_notifiction = calc.notifications;
+
+        // Firing the notification
+        notifications.innerHTML += `
+        <div class="failure-message-${current_notifiction}" style="width: 37rem; height: 7.2rem; margin-bottom: 3rem; animation: fade-out 5s ease-in-out forwards;">
+            <div class="box" style="display: flex; justify-content: space-between; align-items: center; width: 37rem; height: 5.2rem; border-radius: 0.5rem; background: linear-gradient(90deg, #FE0D65 0%, #FF5856 99.55%);">
+                <span style="font-size: 2rem; font-weight: 400; margin: 0rem 2rem; width: 25rem">No value to copy!</span>
+                <img style="margin: 0rem 2rem; cursor: pointer;" src="public/images/icons/close_message.svg" onclick="closeNotification('failure-message-',${current_notifiction})">
+            </div>
+            <div class="progress-bar" style="width: 37rem; height: 1rem; margin: 1rem 0rem; background-color: #443D63; border-radius: 0.5rem;">
+                <div class="current-progress" style="width: 65%; height: 1rem; border-radius: 0.5rem; background: linear-gradient(0deg, #FF5B55 0%, #FE0F64 121.75%); animation: condense 5s ease-in-out forwards;"></div>
+            </div>
+        </div>`;
+
+        // Waiting five seconds
+        await sleep(5000);
+
+        // Removing the notification
+        document.querySelector(`.failure-message-${current_notifiction}`).remove();
+        
+        return;
+    }
+
     // Selecting the output
     output.select();
 
@@ -233,7 +259,7 @@ async function copyToClipboard() {
     <div class="success-message-${current_notifiction}" style="width: 37rem; height: 7.2rem; margin-bottom: 3rem; animation: fade-out 5s ease-in-out forwards;">
         <div class="box" style="display: flex; justify-content: space-between; align-items: center; width: 37rem; height: 5.2rem; border-radius: 0.5rem; background: linear-gradient(90deg, #05A65B 0%, #88DE52 99.55%);">
             <span style="font-size: 2rem; font-weight: 400; margin: 0rem 2rem;">Copied to clipboard :)</span>
-            <img style="margin: 0rem 2rem; cursor: pointer;" src="public/images/icons/close_message.svg" onclick="closeCopyToClipboardNotification(${current_notifiction})">
+            <img style="margin: 0rem 2rem; cursor: pointer;" src="public/images/icons/close_message.svg" onclick="closeNotification('success-message-',${current_notifiction})">
         </div>
         <div class="progress-bar" style="width: 37rem; height: 1rem; margin: 1rem 0rem; background-color: #443D63; border-radius: 0.5rem;">
             <div class="current-progress" style="width: 65%; height: 1rem; border-radius: 0.5rem; background: linear-gradient(0deg, #05A65B 0%, #88DE52 121.75%); animation: condense 5s ease-in-out forwards;"></div>
@@ -250,9 +276,10 @@ async function copyToClipboard() {
 
 };
 
-// Implementing close "copy to clipboard" notification feature
-function closeCopyToClipboardNotification(notification_id) {
-    document.querySelector(`.success-message-${notification_id}`).remove();
+// Implementing "close notification" feature
+function closeNotification(prefix, notification_id) {
+    console.log(prefix);
+    document.querySelector(`.${prefix}${notification_id}`).remove();
     return;
 }
 
@@ -264,7 +291,28 @@ async function saveResult() {
 
     // Verifying if has no input value to save
     if (!input.value) {
-        return 1;
+        // Assigning the current notification how the calc.notifications value
+        let current_notifiction = calc.notifications;
+
+        // Firing the notification
+        notifications.innerHTML += `
+        <div class="failure-message-${current_notifiction}" style="width: 37rem; height: 12.2rem; margin-bottom: 3rem; animation: fade-out 5s ease-in-out forwards;">
+            <div class="box" style="display: flex; justify-content: space-between; align-items: center; width: 37rem; height: 10rem; border-radius: 0.5rem; background: linear-gradient(90deg, #FE0D65 0%, #FF5856 99.55%);">
+                <span style="font-size: 2rem; font-weight: 400; margin: 0rem 2rem; width: 25rem">No value to save! Verify the input field.</span>
+                <img style="margin: 0rem 2rem; cursor: pointer;" src="public/images/icons/close_message.svg" onclick="closeNotification('failure-message-',${current_notifiction})">
+            </div>
+            <div class="progress-bar" style="width: 37rem; height: 1rem; margin: 1rem 0rem; background-color: #443D63; border-radius: 0.5rem;">
+                <div class="current-progress" style="width: 65%; height: 1rem; border-radius: 0.5rem; background: linear-gradient(0deg, #FF5B55 0%, #FE0F64 121.75%); animation: condense 5s ease-in-out forwards;"></div>
+            </div>
+        </div>`;
+
+        // Waiting five seconds
+        await sleep(5000);
+
+        // Removing the notification
+        document.querySelector(`.failure-message-${current_notifiction}`).remove();
+        
+        return;
     }
 
     // Saving values from binary to decimal
@@ -293,7 +341,7 @@ async function saveResult() {
     <div class="success-message-${current_notifiction}" style="width: 37rem; height: 12.2rem; margin-bottom: 3rem; animation: fade-out 5s ease-in-out forwards;">
         <div class="box" style="display: flex; justify-content: space-between; align-items: center; width: 37rem; height: 10rem; border-radius: 0.5rem; background: linear-gradient(90deg, #05A65B 0%, #88DE52 99.55%);">
             <span style="font-size: 2rem; font-weight: 400; margin: 0rem 2rem; width: 25rem">Value saved successfully! Check on history tab.</span>
-            <img style="margin: 0rem 2rem; cursor: pointer;" src="public/images/icons/close_message.svg" onclick="closeCopyToClipboardNotification(${current_notifiction})">
+            <img style="margin: 0rem 2rem; cursor: pointer;" src="public/images/icons/close_message.svg" onclick="closeNotification('success-message-',${current_notifiction})">
         </div>
         <div class="progress-bar" style="width: 37rem; height: 1rem; margin: 1rem 0rem; background-color: #443D63; border-radius: 0.5rem;">
             <div class="current-progress" style="width: 65%; height: 1rem; border-radius: 0.5rem; background: linear-gradient(0deg, #05A65B 0%, #88DE52 121.75%); animation: condense 5s ease-in-out forwards;"></div>
