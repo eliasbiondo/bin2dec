@@ -129,7 +129,7 @@ body .container #calc #app #output-fieldset .input-block .clipboard {
     
     /* Backgrund properties */
     background-size: 100%;
-    background-image: url(/public/images/copy.svg);
+    background-image: url(/public/images/icons/copy.svg);
 
     /* Position properties */
     position: absolute;

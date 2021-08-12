@@ -33,12 +33,12 @@
             <div id="app">
                 <div id="input-fieldset">
                     <label for="binary">Binary</label>
-                    <input type="number" id="binary" name="binary">
+                    <input type="number" id="binary" name="binary" min="0" max="1" onkeypress="return isValidNumber(event)">
                 </div>
                 <div id="output-fieldset">
                     <label for="decimal">Decimal</label>
                     <div class="input-block">
-                        <input type="text" id="decimal" name="decimal" disabled>
+                        <input type="text" id="decimal" name="decimal" disabled="true">
                         <span class="clipboard"></span>
                     </div>
                 </div>
@@ -73,5 +73,6 @@
         </div>
         
     </div>
+    <script src="public/js/main.js"></script>
 </body>
 </html>
