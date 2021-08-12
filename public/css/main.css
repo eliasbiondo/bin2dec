@@ -173,12 +173,15 @@ body .container #calc .extra .swap span, body .container #calc .extra .history s
 }
 
 body .container #calc .cookies-alert {
+
+    /* Structural properties */
     width: 95rem;
     height: 8.5rem;
     margin-top: 7.5rem;
     border-radius: 1rem;
     background-color: #292645;
 
+    /* Flex properties */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -191,6 +194,8 @@ body .container #calc .cookies-alert .text-area {
 }
 
 body .container #calc .cookies-alert .accept-button button {
+
+    /* Structural properties */
     width: 26.5rem;
     height: 5rem;
     border: none;
@@ -198,6 +203,7 @@ body .container #calc .cookies-alert .accept-button button {
     cursor: pointer;
     background: linear-gradient(180deg, #FE0A66 0%, #FF5A56 100%);
 
+    /* Font properties */
     font-size: 1.8rem;
     font-weight: 200;
 }
