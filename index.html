@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="public/css/global.css">
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
+    <link rel="stylesheet" type="text/css" href="public/css/animations.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet"> 
@@ -40,6 +41,7 @@
                     <div class="input-block">
                         <input type="text" id="decimal" name="decimal" readonly="readonly">
                         <span class="clipboard"></span>
+                        <span class="save"></span>
                     </div>
                 </div>
             </div>
@@ -69,12 +71,27 @@
                     <button>accept all</button>
                 </div>
             </div>
+
         </div>
     </div>
 
     <!-- Notifications -->
     <div class="notifications">
     </div>
+
+    
+    <!-- History tab -->
+    <div class="history-tab">
+        <div class="container">
+            <div class="close-btn">
+                <img src="public/images/icons/close_tab.svg">
+            </div>
+            <div class="saved-items">
+            </div>
+        </div>
+        
+    </div>
+    
     
 
     <script src="public/js/main.js"></script>

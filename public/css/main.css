@@ -1,7 +1,7 @@
 body .container {
     display: flex;
     justify-content: center;
-    margin: 10.8rem 24.2rem;
+    margin: 11rem 24.2rem;
 }
 
 body .container #calc {
@@ -134,7 +134,26 @@ body .container #calc #app #output-fieldset .input-block .clipboard {
     /* Position properties */
     position: absolute;
     top: 1.3rem;
-    right: 2rem;
+    right: 5.5rem;
+
+    /* General properties */
+    cursor: pointer;
+}
+
+body .container #calc #app #output-fieldset .input-block .save {
+
+    /* Structural properties */
+    width: 2.7rem;
+    height: 2.6rem;
+    
+    /* Backgrund properties */
+    background-size: 100%;
+    background-image: url(/public/images/icons/save.svg);
+
+    /* Position properties */
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
 
     /* General properties */
     cursor: pointer;
@@ -221,30 +240,95 @@ body .notifications {
 
 }
 
-@keyframes condense {
-    0% {
-        width: 100%;
-    }
-
-    100% {
-        width: 0%;
-    }
+/* History tab */
+.history-tab {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    display: none;
+    background: #1D1B33;
+    flex-direction: column;
 }
 
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
+.history-tab .container {
+    flex-direction: column;
+    align-items: center;
+}
 
-    25% {
-        opacity: 0.9;
-    }
+.history-tab .container .close-btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
 
-    50% {
-        opacity: 0.7;
-    }
+.history-tab .container .close-btn img {
+    cursor: pointer;
+}
 
-    100% {
-        opacity: 0;
-    }
+.history-tab .container .saved-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 95rem;
+}
+
+.history-tab .container .saved-items .no-items-found {
+    font-size: 2.4rem;
+    font-weight: 200;
+}
+
+.history-tab .container .saved-items .item {
+    width: 39rem;
+    height: 15rem;
+    display: flex;
+    margin-bottom: 4rem;
+}
+
+.history-tab .container .saved-items .item .vertical-bar {
+    width: 1.2rem;
+    height: 15rem;
+    margin-right: 6rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(180deg, #FE0C66 0%, #FF6055 100%);
+}
+
+.history-tab .container .saved-items .item .data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.history-tab .container .saved-items .item .data .binary {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-tab .container .saved-items .item .data .binary .title {
+    font-size: 2.4rem;
+}
+
+.history-tab .container .saved-items .item .data .binary .value {
+    font-size: 2.4rem;
+    font-weight: 200;
+    color: #676397;
+}
+
+.history-tab .container .saved-items .item .data .decimal {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.history-tab .container .saved-items .item .data .decimal .title {
+    font-size: 2.4rem;
+}
+
+.history-tab .container .saved-items .item .data .decimal .value {
+    font-size: 2.4rem;
+    font-weight: 200;
+    color: #676397;
 }

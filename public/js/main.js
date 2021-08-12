@@ -6,8 +6,15 @@ let output_label = document.querySelector("#output-fieldset label");
 
 let clipboard  = document.querySelector(".clipboard");
 let notifications = document.querySelector(".notifications");
+let save = document.querySelector(".save");
 
 let swap_btn = document.querySelector(".swap");
+
+let body = document.querySelector("body");
+let history_btn = document.querySelector(".history");
+let history_tab = document.querySelector(".history-tab");
+let saved_items = document.querySelector(".saved-items");
+let close_history_btn = document.querySelector(".close-btn");
 
 // Instancing the decimal and binary calc auxiliary variables 
 let decimal;
@@ -17,12 +24,16 @@ let binary;
 input.value = null;
 output.value = null;
 
+// Verifying the existence of saved items
+localStorage.getItem("count_saved") ? null : localStorage.setItem("count_saved", 0);
+
 // Instancing the calc object
 let calc = {
     mode: "binary_to_decimal",
     last_input: null,
     last_output: null,
     notifications: 0,
+    count_saved: Number(localStorage.getItem("count_saved")),
 }
 
 function isValidNumber(e) {
@@ -122,8 +133,10 @@ function calculate() {
                 // Reversing the binary array to get the real binary number
                 binary_arr.reverse();
 
+                calc.last_output = binary_arr.join('');
+
                 // Printing the result
-                output.value = binary_arr.join('');
+                output.value = calc.last_output;
 
             break;
     
@@ -167,7 +180,6 @@ function swap() {
 
             calc.last_input = input.value;
             calc.last_output = output.value;
-            
 
         break;
 
@@ -192,6 +204,8 @@ function swap() {
         break;
 
     }
+
+    return;
 
 
 }
@@ -218,7 +232,7 @@ async function copyToClipboard() {
     notifications.innerHTML += `
     <div class="success-message-${current_notifiction}" style="width: 37rem; height: 7.2rem; margin-bottom: 3rem; animation: fade-out 5s ease-in-out forwards;">
         <div class="box" style="display: flex; justify-content: space-between; align-items: center; width: 37rem; height: 5.2rem; border-radius: 0.5rem; background: linear-gradient(90deg, #05A65B 0%, #88DE52 99.55%);">
-            <span style="font-size: 2.4rem; font-weight: 400; margin: 0rem 2rem;">Copied to clipboard :)</span>
+            <span style="font-size: 2rem; font-weight: 400; margin: 0rem 2rem;">Copied to clipboard :)</span>
             <img style="margin: 0rem 2rem; cursor: pointer;" src="public/images/icons/close_message.svg" onclick="closeCopyToClipboardNotification(${current_notifiction})">
         </div>
         <div class="progress-bar" style="width: 37rem; height: 1rem; margin: 1rem 0rem; background-color: #443D63; border-radius: 0.5rem;">
@@ -232,9 +246,140 @@ async function copyToClipboard() {
     // Removing the notification
     document.querySelector(`.success-message-${current_notifiction}`).remove();
 
+    return;
+
 };
 
 // Implementing close "copy to clipboard" notification feature
 function closeCopyToClipboardNotification(notification_id) {
     document.querySelector(`.success-message-${notification_id}`).remove();
+    return;
+}
+
+// Adding an event listener for "save result" feature
+save.addEventListener("click", saveResult);
+
+// Implementing the "save result" feature
+async function saveResult() {
+
+    // Verifying if has no input value to save
+    if (!input.value) {
+        return 1;
+    }
+
+    // Saving values from binary to decimal
+    switch(calc.mode) {
+        case "binary_to_decimal":
+            localStorage.setItem(`saved-value-id-${calc.count_saved+1}`, `["${calc.last_input}","${calc.last_output}"]`);
+        break;
+
+        case "decimal_to_binary":
+            localStorage.setItem(`saved-value-id-${calc.count_saved+1}`, `["${calc.last_output}","${calc.last_input}"]`);
+        break;
+
+    }
+
+    // Increase saved values quantity by one
+    calc.count_saved++
+
+    // Saving the change on localStorage
+    localStorage.setItem("count_saved",calc.count_saved);
+
+    // Assigning the current notification how the calc.notifications value
+    let current_notifiction = calc.notifications;
+
+    // Firing the notification
+    notifications.innerHTML += `
+    <div class="success-message-${current_notifiction}" style="width: 37rem; height: 12.2rem; margin-bottom: 3rem; animation: fade-out 5s ease-in-out forwards;">
+        <div class="box" style="display: flex; justify-content: space-between; align-items: center; width: 37rem; height: 10rem; border-radius: 0.5rem; background: linear-gradient(90deg, #05A65B 0%, #88DE52 99.55%);">
+            <span style="font-size: 2rem; font-weight: 400; margin: 0rem 2rem; width: 25rem">Value saved successfully! Check on history tab.</span>
+            <img style="margin: 0rem 2rem; cursor: pointer;" src="public/images/icons/close_message.svg" onclick="closeCopyToClipboardNotification(${current_notifiction})">
+        </div>
+        <div class="progress-bar" style="width: 37rem; height: 1rem; margin: 1rem 0rem; background-color: #443D63; border-radius: 0.5rem;">
+            <div class="current-progress" style="width: 65%; height: 1rem; border-radius: 0.5rem; background: linear-gradient(0deg, #05A65B 0%, #88DE52 121.75%); animation: condense 5s ease-in-out forwards;"></div>
+        </div>
+    </div>`;
+
+    // Waiting five seconds
+    await sleep(5000);
+
+    // Removing the notification
+    document.querySelector(`.success-message-${current_notifiction}`).remove();
+
+    return;
+}
+
+// Adding an event listener for "history" feature
+history_btn.addEventListener("click", openHistory);
+
+// Implementing the "history" feature
+function openHistory() {
+
+    // Setting the body overflow style how hidden
+    body.style.overflow = "hidden"
+
+    // Setting the history_tab display style how flex
+    history_tab.style.display = "flex";
+
+    // Checking if have no items
+    if(calc.count_saved == 0) {
+
+        saved_items.innerHTML += `
+        <div class="no-items-found">
+            <span>No items found!</span>
+        </div>
+        `
+        saved_items.style.height = "35rem";
+        saved_items.style.alignItems = "center";
+
+        return;
+    }
+
+    // Printing each item on the history tab
+    for(let i = 1; i <= calc.count_saved; i++) {
+
+        let arr = JSON.parse(localStorage.getItem(`saved-value-id-${i}`));
+
+        saved_items.innerHTML += `
+        <div class="item">
+            <div class="vertical-bar"></div>
+            <div class="data">
+                <div class="binary">
+                    <span class="title">Binary</span>
+                    <span class="value">${arr[0]}</span>
+                </div>
+                <div class="decimal">
+                    <span class="title">Decimal</span>
+                    <span class="value">${arr[1]}</span>
+                </div>
+            </div>
+        </div>
+        `
+    }
+
+    return;
+}
+
+// Adding an event listener for "close history tab" feature
+close_history_btn.addEventListener("click", closeHistory);
+
+// Implementing the "close history tab" feature
+function closeHistory() {
+
+    // Setting the body overflow style how visible
+    body.style.overflow = "visible"
+
+    // Setting the history_tab display style how none
+    history_tab.style.display = "none";
+
+    // Getting all items
+    let items = document.querySelectorAll(".item, .no-items-found");
+
+    // Deleting all items
+    items.forEach(item => {
+        item.remove();
+    })
+
+    return;
+
 }
