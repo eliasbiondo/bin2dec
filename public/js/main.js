@@ -1,11 +1,13 @@
 let input = document.querySelector("#input-fieldset input");
 let output = document.querySelector("#output-fieldset .input-block input");
 let clipboard  = document.querySelector(".clipboard");
+let message_box = document.querySelector(".notifications");
 
 let calc = {
     mode: "binary_to_decimal",
     last_input: null,
     last_output: null,
+    notifications: 0,
 }
 
 function isValidNumber(e) {
@@ -92,12 +94,45 @@ function calculate() {
 // Calling "calculte()" function in intervals of 250ms for auto calculate
 setInterval(calculate, 250);
 
+// Implementing the sleep function
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 // Adding an event listener for copy to clipboard feature
 clipboard.addEventListener("click", copyToClipboard);
 
 // Implementing the copy to clipboard feature
-function copyToClipboard() {
+async function copyToClipboard() {
+
+    // Selecting the output
     output.select();
+
+    // Copying the output value
     document.execCommand("copy");
+
+    // Increasing by one the notifications quantity number
+    calc.notifications++;
+
+    // Assigning the current notification how the calc.notifications value
+    let current_notifiction = calc.notifications;
+
+    // Firing the notification
+    message_box.innerHTML += `
+    <div class="success-message-${current_notifiction}" style="width: 37rem; height: 7.2rem; margin-bottom: 3rem; animation: fade-out 5s ease-in-out forwards;">
+        <div class="box" style="display: flex; justify-content: space-between; align-items: center; width: 37rem; height: 5.2rem; border-radius: 0.5rem; background: linear-gradient(90deg, #05A65B 0%, #88DE52 99.55%);">
+            <span style="font-size: 2.4rem; font-weight: 400; margin: 0rem 2rem;">Copied to clipboard :)</span>
+            <img style="margin: 0rem 2rem; cursor: pointer;" src="public/images/icons/close_message.svg">
+        </div>
+        <div class="progress-bar" style="width: 37rem; height: 1rem; margin: 1rem 0rem; background-color: #443D63; border-radius: 0.5rem;">
+            <div class="current-progress" style="width: 65%; height: 1rem; border-radius: 0.5rem; background: linear-gradient(0deg, #05A65B 0%, #88DE52 121.75%); animation: condense 5s ease-in-out forwards;"></div>
+        </div>
+    </div>`;
+
+    // Waiting five seconds
+    await sleep(5000);
+
+    // Removing the notification
+    document.querySelector(`.success-message-${current_notifiction}`).remove();
+
 };
