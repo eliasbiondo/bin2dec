@@ -130,7 +130,7 @@ body .container #calc #app #output-fieldset .input-block .clipboard {
     background-size: 100%;
     background-image: url(/public/images/copy.svg);
 
-    /* Position proterties */
+    /* Position properties */
     position: absolute;
     top: 1.3rem;
     right: 2rem;
