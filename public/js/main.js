@@ -1,5 +1,6 @@
 let input = document.querySelector("#input-fieldset input");
 let output = document.querySelector("#output-fieldset .input-block input");
+let clipboard  = document.querySelector(".clipboard");
 
 let calc = {
     mode: "binary_to_decimal",
@@ -66,11 +67,10 @@ function calculate() {
 
                 })
 
-                console.log(decimal);
-
                 // Assinging the last output value how the calculated decimal
                 calc.last_output = decimal;
 
+                // Printing the result on screen
                 output.value = decimal;
 
             break;
@@ -91,3 +91,13 @@ function calculate() {
 
 // Calling "calculte()" function in intervals of 250ms for auto calculate
 setInterval(calculate, 250);
+
+
+// Adding an event listener for copy to clipboard feature
+clipboard.addEventListener("click", copyToClipboard);
+
+// Implementing the copy to clipboard feature
+function copyToClipboard() {
+    output.select();
+    document.execCommand("copy");
+};
