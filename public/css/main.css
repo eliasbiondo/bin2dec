@@ -118,6 +118,7 @@ body .container #calc #app #output-fieldset .input-block input {
     /* General properties */
     border: none;
     border-radius: 1rem;
+    cursor: not-allowed;
 }
 
 body .container #calc #app #output-fieldset .input-block .clipboard {
@@ -137,4 +138,66 @@ body .container #calc #app #output-fieldset .input-block .clipboard {
 
     /* General properties */
     cursor: pointer;
+}
+
+body .container #calc .extra  {
+    display: flex;
+    width: 36rem;
+    justify-content: space-between;
+}
+
+body .container #calc .extra .swap,  body .container #calc .extra .history {
+    display: flex;
+    align-items: baseline;
+    cursor: pointer;
+}
+
+body .container #calc .extra .swap .icon, body .container #calc .extra .history .icon {
+    
+    /* Structural properties */
+    width: 4.4rem;
+    height: 4.4rem;
+    margin-right: 1.5rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(0deg, #FE0866 0%, #FF6254 100%);
+
+    /* Flex properties */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .container #calc .extra .swap span, body .container #calc .extra .history span {
+    font-weight: 200;
+    font-size: 2.4rem;
+}
+
+body .container #calc .cookies-alert {
+    width: 95rem;
+    height: 8.5rem;
+    margin-top: 7.5rem;
+    border-radius: 1rem;
+    background-color: #292645;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+body .container #calc .cookies-alert .text-area {
+    width: 59rem;
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+body .container #calc .cookies-alert .accept-button button {
+    width: 26.5rem;
+    height: 5rem;
+    border: none;
+    border-radius: 2.5rem;
+    cursor: pointer;
+    background: linear-gradient(180deg, #FE0A66 0%, #FF5A56 100%);
+
+    font-size: 1.8rem;
+    font-weight: 200;
 }
