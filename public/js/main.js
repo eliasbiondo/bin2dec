@@ -169,46 +169,98 @@ function sleep(ms) {
 swap_btn.addEventListener("click", swap);
 
 // Implementing the swap feature
-function swap() {
+async function swap() {
 
     switch(calc.mode) {
         case "binary_to_decimal":
 
+            // Changing calc mode
             calc.mode = "decimal_to_binary";
             
-            input_label.setAttribute("for","decimal");
+            // Adding swipe effect class
+            input_label.classList.add("fade-out");
+            output_label.classList.add("fade-out");
+            input.classList.add("input-fade-out");
+            output.classList.add("output-fade-out");
+
+            // Waiting 500ms
+            await sleep(500);
+
+            // Removing swipe effect class
+            input_label.classList.remove("fade-out");
+            output_label.classList.remove("fade-out");
+            input.classList.remove("input-fade-out");
+            output.classList.remove("output-fade-out");
+
             input_label.innerHTML = "Decimal";
-
-            input.setAttribute("id","decimal");
-            input.setAttribute("name","decimal");
-
             output_label.innerHTML = "Binary";
-            
+
             input.value = calc.last_output;
             output.value = calc.last_input;
 
             calc.last_input = input.value;
             calc.last_output = output.value;
+
+            input_label.setAttribute("for","decimal");
+            input.setAttribute("id","decimal");
+            input.setAttribute("name","decimal");
+
+            // Adding swipe effect class
+            input_label.classList.add("fade-in");
+            output_label.classList.add("fade-in");
+
+            // Waiting 500ms
+            await sleep(500);
+
+            // Removing swipe effect class
+            input_label.classList.remove("fade-in");
+            output_label.classList.remove("fade-in");
 
         break;
 
         case "decimal_to_binary":
 
+            // Changing calc mode
             calc.mode = "binary_to_decimal";
 
-            input_label.setAttribute("for","binary");
+            // Adding swipe effect class
+            input_label.classList.add("fade-out");
+            output_label.classList.add("fade-out");
+            input.classList.add("input-fade-out");
+            output.classList.add("output-fade-out");
+
+            // Waiting 500ms
+            await sleep(500);
+
+            // Removing swipe effect class
+            input_label.classList.remove("fade-out");
+            output_label.classList.remove("fade-out");
+            input.classList.remove("input-fade-out");
+            output.classList.remove("output-fade-out");
+
             input_label.innerHTML = "Binary";
-
-            input.setAttribute("id","binary");
-            input.setAttribute("name","binary");
-
             output_label.innerHTML = "Decimal";
-            
+
             input.value = calc.last_output;
             output.value = calc.last_input;
 
             calc.last_input = input.value;
             calc.last_output = output.value;
+
+            input_label.setAttribute("for","binary");
+            input.setAttribute("id","binary");
+            input.setAttribute("name","binary");
+
+            // Adding swipe effect class
+            input_label.classList.add("fade-in");
+            output_label.classList.add("fade-in");
+
+            // Waiting 500ms
+            await sleep(500);
+
+            // Removing swipe effect class
+            input_label.classList.remove("fade-in");
+            output_label.classList.remove("fade-in");
 
         break;
 
@@ -295,7 +347,6 @@ async function copyToClipboard() {
     let success_message = document.querySelector(`#success-message-${current_notification}`)
 
     // Adding animation class to it
-    success_message.classList.add("fade-out");
     success_message.classList.add("mobile-fly-out");
     success_message.children[0].classList.add("mobile-fly-out");
 
@@ -465,10 +516,18 @@ function openHistory() {
 close_history_btn.addEventListener("click", closeHistory);
 
 // Implementing the "close history tab" feature
-function closeHistory() {
+async function closeHistory() {
 
     // Setting the body overflow style how visible
     body.style.overflow = "visible"
+
+    // Adding the effect classes
+    history_tab.classList.add("zoom-out");
+
+    await sleep(740);
+
+    // Removing the effect class
+    history_tab.classList.remove("zoom-out");
 
     // Setting the history_tab display style how none
     history_tab.style.display = "none";

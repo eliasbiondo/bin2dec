@@ -25,11 +25,13 @@ body .container #calc header .header-title h1 {
     font-size:4.8rem;
     font-weight: 700;
     margin-right: 1rem;
+    animation: swipe-left 0.75s ease-in-out;
 }
 
 body .container #calc header .header-title img {
     width: 5rem;
     height: 5rem;
+    animation: fly-in 0.75s ease-in-out;
 }
 
 body .container #calc header .header-description {
@@ -50,6 +52,7 @@ body .container #calc header .header-description {
     /* General properties */
     border-radius: 1rem;
     background: linear-gradient(180deg, #FE0866 0%, #FF6254 100%);
+    animation: fly-in 0.75s ease-in-out;
 
 }
 
@@ -63,6 +66,7 @@ body .container #calc #app #input-fieldset {
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
+    animation: swipe-right 0.75s ease-in-out;
 }
 
 body .container #calc #app #input-fieldset label {
@@ -87,6 +91,10 @@ body .container #calc #app #input-fieldset input {
     /* General properties */
     border-radius: 1rem;
     border: 3px solid #FF5F55;
+}
+
+body .container #calc #app #output-fieldset {
+    animation: zoom 0.75s ease-in-out;
 }
 
 body .container #calc #app #output-fieldset label {
@@ -164,10 +172,18 @@ body .container #calc .extra  {
     justify-content: space-between;
 }
 
-body .container #calc .extra .swap,  body .container #calc .extra .history {
+body .container #calc .extra .swap  {
     display: flex;
     align-items: center;
     cursor: pointer;
+    animation: swipe-left 0.75s ease-in-out;
+}
+
+body .container #calc .extra .history {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    animation: swipe-right 0.75s ease-in-out;
 }
 
 body .container #calc .extra .swap .icon, body .container #calc .extra .history .icon {
@@ -235,9 +251,10 @@ body .container #calc .cookies-alert .accept-button button {
     bottom: 0;
     opacity: 1;
     display: none;
-    overflow-y: scroll;
+    overflow-y: auto;
     background: #1D1B33;
     flex-direction: column;
+    animation: zoom-in 0.75s ease-in-out;
 }
 
 .history-tab .container .close-btn {
