@@ -136,7 +136,7 @@ body .container #calc #app #output-fieldset .input-block .clipboard {
     
     /* Backgrund properties */
     background-size: 100%;
-    background-image: url(/public/images/icons/copy.svg);
+    background-image: url(https://raw.githubusercontent.com/eliasbiondo/bin2dec/fdd012d244e759c245706068abf7b1b955a14f06/public/images/icons/copy.svg);
 
     /* Position properties */
     position: absolute;
@@ -155,7 +155,7 @@ body .container #calc #app #output-fieldset .input-block .save {
     
     /* Backgrund properties */
     background-size: 100%;
-    background-image: url(/public/images/icons/save.svg);
+    background-image: url(https://raw.githubusercontent.com/eliasbiondo/bin2dec/fdd012d244e759c245706068abf7b1b955a14f06/public/images/icons/save.svg);
 
     /* Position properties */
     position: absolute;
