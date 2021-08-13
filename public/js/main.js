@@ -1,20 +1,25 @@
+let body = document.querySelector("body");
+let calc_dom = document.querySelector("#calc");
+
 let input = document.querySelector("#input-fieldset input");
 let input_label = document.querySelector("#input-fieldset label");
-
 let output = document.querySelector("#output-fieldset .input-block input");
 let output_label = document.querySelector("#output-fieldset label");
 
 let clipboard  = document.querySelector(".clipboard");
+
 let notifications = document.querySelector(".notifications");
+
 let save = document.querySelector(".save");
 
 let swap_btn = document.querySelector(".swap");
-
-let body = document.querySelector("body");
 let history_btn = document.querySelector(".history");
+
 let history_tab = document.querySelector(".history-tab");
 let saved_items = document.querySelector(".saved-items");
 let close_history_btn = document.querySelector(".close-btn");
+
+let cookies_alert;
 
 // Instancing the decimal and binary calc auxiliary variables 
 let decimal;
@@ -27,6 +32,9 @@ output.value = null;
 // Verifying the existence of saved items
 localStorage.getItem("count_saved") ? null : localStorage.setItem("count_saved", 0);
 
+// Verifying the existence of cookies preferences
+localStorage.getItem("cookies") ? null : localStorage.setItem("cookies", false);
+
 // Instancing the calc object
 let calc = {
     mode: "binary_to_decimal",
@@ -34,6 +42,7 @@ let calc = {
     last_output: null,
     notifications: 0,
     count_saved: Number(localStorage.getItem("count_saved")),
+    cookies: JSON.parse(localStorage.getItem("cookies")),
 }
 
 function isValidNumber(e) {
@@ -430,3 +439,45 @@ function closeHistory() {
     return;
 
 }
+
+(function renderCookiesAlert() {
+    
+    // If cookies preferences is setted to true no render!
+    if(calc.cookies) {
+        return;
+    }
+
+    // Rendering cookies alert if cookies preferences is setted to false
+    calc_dom.innerHTML += `
+        <!-- Cookies alert -->
+        <div class="cookies-alert">
+            <div class="text-area">
+                <p>This website use cookies to improve user experience. By using our website you consent to all cookies in accordance with our Cookies Policy.  </p>
+            </div>
+            <div class="accept-button">
+                <button>accept all</button>
+            </div>
+        </div>
+    `
+
+    return;
+
+})();
+
+// Implementing the "close cookies alert" feature if needed
+if(!calc.cookies) {
+
+    // Getting the "cookies_alert"
+    cookies_alert = document.querySelector(".cookies-alert");
+
+    // Adding an event listener for "close cookies alert" feature
+    cookies_alert.children[1].addEventListener("click", closeCookiesAlert);
+
+    // Implementing the "close cookies alert" feature 
+    function closeCookiesAlert() {
+        localStorage.setItem("cookies","true");
+        cookies_alert.remove();
+    }
+    
+}
+
