@@ -1,0 +1,157 @@
+@media (max-width: 1000px) {
+    body .container #calc .cookies-alert {
+    
+        width: clamp(10rem, 65vw, 80rem);
+        height: clamp(20rem, 25vw, 36rem);
+        margin-top: clamp(1rem, 8vw, 7rem);
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    body .container #calc .cookies-alert .text-area {
+        width: clamp(8rem, 60vw, 74rem);
+        text-align: center;
+        font-weight: 400;
+        font-size: clamp(1rem, 3vw, 1.8rem);
+        margin-bottom: 2rem;
+    }
+
+    body .container #calc .cookies-alert .accept-button button {
+        width: clamp(5rem, 25vw, 28rem);
+        border-radius: 10rem;
+        height: clamp(3rem, 2vw, 5rem);
+        font-size: clamp(1rem, 5vw, 1.8rem);
+    }
+}
+
+@media (max-width: 560px) {
+
+    body .container #calc {
+        max-width: 36rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    body .container #calc header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    body .container #calc header .header-title {
+        min-height: 3rem;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    body .container #calc header .header-title h1 {
+        font-size: clamp(1rem, 10vw, 4.8rem);
+        margin-right: 1rem;
+    }
+    
+    body .container #calc header .header-title img {
+        width: clamp(2rem, 10vw, 5rem);
+        height: clamp(2rem, 10vw, 5rem);
+    }
+    
+    body .container #calc header .header-description {
+        height: 4.4rem;
+        text-align: center;
+        width: clamp(10rem, 65vw, 80rem);
+        font-size: clamp(1rem, 5vw, 1.8rem);
+    }
+
+    body .container #calc #app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: clamp(1rem, 5vw, 4rem) 0rem;
+    }
+    
+    body .container #calc #app #input-fieldset {
+        margin-bottom: clamp(0.5rem, 4vw, 2rem);
+    }
+    
+    body .container #calc #app #input-fieldset label {
+        font-size: clamp(1rem, 5vw, 1.8rem);
+    }
+    
+    body .container #calc #app #input-fieldset input {
+    
+        width: clamp(10rem, 65vw, 80rem);
+        height: clamp(2rem, 10vw, 6rem);
+        padding: 1.2rem clamp(1rem, 5vw, 2rem);
+        margin-bottom: 0rem;
+        font-size: clamp(1rem, 5vw, 1.8rem);
+        border: clamp(0.1rem, 2vw, 0.3rem) solid #FF5F55;
+    }
+    
+    body .container #calc #app #output-fieldset label {
+        font-size: clamp(1rem, 5vw, 1.8rem);
+        font-weight: 200;
+        margin-bottom: 0.5rem;
+    }
+    
+    body .container #calc #app #output-fieldset .input-block  {
+        width: clamp(10rem, 65vw, 80rem);
+        display: flex;
+        position: relative;
+    }
+    
+    body .container #calc #app #output-fieldset .input-block input {
+    
+        width: clamp(10rem, 65vw, 80rem);
+        height: clamp(2rem, 10vw, 6rem);
+        padding: 1.2rem clamp(1rem, 5vw, 2rem);
+        padding-right: clamp(2rem, 10vw, 10rem);
+        font-size: clamp(1rem, 5vw, 1.8rem);
+
+    }
+    
+    body .container #calc #app #output-fieldset .input-block .clipboard {
+        width: clamp(1.2rem, 5vw, 3.3rem);
+        height: clamp(2.2rem, 10vw, 3.3rem);
+        background-repeat: no-repeat;
+        top: clamp(0.4rem, 1.8vw, 1.6rem);
+        right: clamp(0.4rem, 2vw, 1.6rem);
+    }
+    
+    body .container #calc #app #output-fieldset .input-block .save {
+        display: none;   
+    }
+
+    body .container #calc .extra  {
+        width: clamp(10rem, 65vw, 80rem);
+        flex-direction: column;
+    }
+    
+    body .container #calc .extra .swap {
+        justify-content: center;
+    }
+
+    body .container #calc .extra .history {
+        display: none;
+    }
+    
+    body .container #calc .extra .swap .icon, body .container #calc .extra .history .icon {
+        
+        width: clamp(1rem, 10vw, 4.4rem);
+        height: clamp(2rem, 10vw, 4.4rem);
+        margin-right: clamp(0.5rem, 1vw, 1.5rem);
+    }
+
+    body .container #calc .extra .swap .icon img, body .container #calc .extra .history .icon img {
+        
+        /* Structural properties */
+        width: clamp(0.8rem, 8vw, 3rem);
+        height: clamp(0.8rem, 8vw, 3rem);
+
+    }
+    
+    body .container #calc .extra .swap span, body .container #calc .extra .history span {
+        font-weight: 200;
+        font-size: clamp(1rem, 5vw, 1.8rem);
+    }
+
+}

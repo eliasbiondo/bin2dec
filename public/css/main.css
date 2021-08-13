@@ -1,11 +1,11 @@
 body .container {
     display: flex;
     justify-content: center;
-    margin: 11rem 24.2rem;
+    margin: clamp(2rem, 2vw, 10rem) clamp(2rem, 5vw, 25rem);
 }
 
 body .container #calc {
-    width: 36rem;
+    max-width: 36rem;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -63,7 +63,6 @@ body .container #calc #app #input-fieldset {
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
-    width: 36rem;
 }
 
 body .container #calc #app #input-fieldset label {
@@ -167,7 +166,7 @@ body .container #calc .extra  {
 
 body .container #calc .extra .swap,  body .container #calc .extra .history {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -249,31 +248,27 @@ body .notifications {
     bottom: 0;
     opacity: 1;
     display: none;
+    overflow-y: scroll;
     background: #1D1B33;
     flex-direction: column;
 }
 
-.history-tab .container {
-    flex-direction: column;
-    align-items: center;
-}
-
 .history-tab .container .close-btn {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+    position: absolute;
+    right: clamp(1rem, 5vw, 10rem);
+    top: clamp(2rem, 2vw, 8rem);
 }
 
 .history-tab .container .close-btn img {
+    width: clamp(1.5rem, 3vw, 3.0rem);
     cursor: pointer;
 }
 
 .history-tab .container .saved-items {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    max-width: 95rem;
+    max-width: clamp(15rem, 95vw, 150rem);
 }
 
 .history-tab .container .saved-items .no-items-found {
@@ -282,17 +277,17 @@ body .notifications {
 }
 
 .history-tab .container .saved-items .item {
-    width: 39rem;
-    height: 15rem;
+    width: clamp(15rem, 20vw, 30rem);
     display: flex;
-    margin-bottom: 4rem;
+    margin-right: clamp(1rem, 5vw, 3rem);
+    margin-bottom: clamp(1rem, 15vw, 4rem);
 }
 
 .history-tab .container .saved-items .item .vertical-bar {
-    width: 1.2rem;
-    height: 15rem;
-    margin-right: 6rem;
-    border-radius: 0.5rem;
+    width: clamp(0.1rem, 1vw, 1.2rem);
+    height: clamp(5rem, 20vw, 14rem);
+    margin-right: clamp(1rem, 5vw, 5rem);
+    border-radius: clamp(0.5rem, 2.5vw, 2.5rem);
     background: linear-gradient(180deg, #FE0C66 0%, #FF6055 100%);
 }
 
@@ -308,11 +303,11 @@ body .notifications {
 }
 
 .history-tab .container .saved-items .item .data .binary .title {
-    font-size: 2.4rem;
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
 }
 
 .history-tab .container .saved-items .item .data .binary .value {
-    font-size: 2.4rem;
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
     font-weight: 200;
     color: #676397;
 }
@@ -324,11 +319,11 @@ body .notifications {
 
 
 .history-tab .container .saved-items .item .data .decimal .title {
-    font-size: 2.4rem;
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
 }
 
 .history-tab .container .saved-items .item .data .decimal .value {
-    font-size: 2.4rem;
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
     font-weight: 200;
     color: #676397;
 }
