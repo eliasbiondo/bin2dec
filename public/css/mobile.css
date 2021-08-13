@@ -42,7 +42,7 @@
         height: clamp(3.5rem, 30vw, 7rem);
         width: 100vw;
         border-radius: 0rem;
-        border-bottom: 3px solid #fff; 
+        border-bottom: 3px solid #fff;
     }
     
     .failure-message .box span {
@@ -93,6 +93,13 @@
     .success-message .progress-bar {
         display: none;
     }
+
+    /* Specifically animation classes */
+
+    .mobile-fly-out {
+        animation: fly-out 1s ease-in-out forwards;
+    }
+
 }
 
 @media (max-width: 560px) {

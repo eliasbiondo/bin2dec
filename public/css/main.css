@@ -226,19 +226,6 @@ body .container #calc .cookies-alert .accept-button button {
     font-weight: 200;
 }
 
-body .notifications {
-
-    /* Flex properties */
-    display: flex;
-    flex-direction: column;
-
-    /* Position properties */
-    top: 3.8rem;
-    right: 3.8rem;
-    position: absolute;
-
-}
-
 /* History tab */
 .history-tab {
     position: fixed;
@@ -330,11 +317,24 @@ body .notifications {
 
 /* Notifications */
 
+body .notifications {
+
+    /* Flex properties */
+    display: flex;
+    flex-direction: column;
+
+    /* Position properties */
+    top: 3.8rem;
+    right: 3.8rem;
+    position: absolute;
+
+}
+
 .failure-message {
     width: clamp(10rem, 25vw, 37rem);
     height: 7.2rem;
     margin-bottom: 3rem;
-    /* animation: fade-out 5s ease-in-out forwards; */
+    animation: fade-out 5s ease-in-out forwards;
 }
 
 .failure-message .box {
@@ -383,7 +383,7 @@ body .notifications {
     width: clamp(10rem, 25vw, 37rem);
     height: 7.2rem;
     margin-bottom: 3rem;
-    /* animation: fade-out 5s ease-in-out forwards; */
+    animation: fade-out 5s ease-in-out forwards;
 }
 
 .success-message .box {

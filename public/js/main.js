@@ -245,8 +245,18 @@ async function copyToClipboard() {
             </div>
         </div>`;
 
-        // Waiting five seconds
-        await sleep(5000);
+        // Waiting four seconds
+        await sleep(4000);
+
+        // Capturing the current failure message
+        let failure_message = document.querySelector(`#failure-message-${current_notification}`)
+
+        // Adding animation class to it
+        failure_message.classList.add("mobile-fly-out");
+        failure_message.children[0].classList.add("mobile-fly-out");
+
+        // Waiting one second
+        await sleep(1000);
 
         // Removing the notification
         document.querySelector(`#failure-message-${current_notification}`).remove();
@@ -278,8 +288,20 @@ async function copyToClipboard() {
         </div>
     </div>`;
 
-    // Waiting five seconds
-    await sleep(5000);
+    // Waiting four seconds
+    await sleep(4000);
+
+    // Capturing the current failure message
+    let success_message = document.querySelector(`#success-message-${current_notification}`)
+
+    // Adding animation class to it
+    success_message.classList.add("fade-out");
+    success_message.classList.add("mobile-fly-out");
+    success_message.children[0].classList.add("mobile-fly-out");
+
+    // Waiting one second
+    await sleep(1000);
+
 
     // Removing the notification
     document.querySelector(`#success-message-${current_notification}`).remove();
@@ -317,11 +339,21 @@ async function saveResult() {
             </div>
         </div>`;
 
-        // Waiting five seconds
-        await sleep(5000);
+        // Waiting four seconds
+        await sleep(4000);
+
+        // Capturing the current failure message
+        let failure_message = document.querySelector(`#failure-message-${current_notification}`)
+
+        // Adding animation class to it
+        failure_message.classList.add("mobile-fly-out");
+        failure_message.children[0].classList.add("mobile-fly-out");
+
+        // Waiting one second
+        await sleep(1000);
 
         // Removing the notification
-        document.querySelector(`.failure-message-${current_notification}`).remove();
+        document.querySelector(`#failure-message-${current_notification}`).remove();
         
         return;
     }
@@ -359,8 +391,18 @@ async function saveResult() {
         </div>
     </div>`;
 
-    // Waiting five seconds
-    await sleep(5000);
+    // Waiting four seconds
+    await sleep(4000);
+
+    // Capturing the current failure message
+    let success_message = document.querySelector(`#success-message-${current_notification}`)
+
+    // Adding animation class to it
+    success_message.classList.add("mobile-fly-out");
+    success_message.children[0].classList.add("mobile-fly-out");
+
+    // Waiting one second
+    await sleep(1000);
 
     // Removing the notification
     document.querySelector(`#success-message-${current_notification}`).remove();
@@ -443,30 +485,6 @@ function closeHistory() {
 
 }
 
-(function renderCookiesAlert() {
-    
-    // If cookies preferences is setted to true no render!
-    if(calc.cookies) {
-        return;
-    }
-
-    // Rendering cookies alert if cookies preferences is setted to false
-    calc_dom.innerHTML += `
-        <!-- Cookies alert -->
-        <div class="cookies-alert">
-            <div class="text-area">
-                <p>This website use cookies to improve user experience. By using our website you consent to all cookies in accordance with our Cookies Policy.  </p>
-            </div>
-            <div class="accept-button">
-                <button>accept all</button>
-            </div>
-        </div>
-    `
-
-    return;
-
-})();
-
 // Implementing the "close cookies alert" feature if needed
 if(!calc.cookies) {
 
@@ -482,5 +500,7 @@ if(!calc.cookies) {
         cookies_alert.remove();
     }
     
+} else {
+    document.querySelector(".cookies-alert").remove();
 }
 
