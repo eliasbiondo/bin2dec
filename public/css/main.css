@@ -327,3 +327,103 @@ body .notifications {
     font-weight: 200;
     color: #676397;
 }
+
+/* Notifications */
+
+.failure-message {
+    width: clamp(10rem, 25vw, 37rem);
+    height: 7.2rem;
+    margin-bottom: 3rem;
+    /* animation: fade-out 5s ease-in-out forwards; */
+}
+
+.failure-message .box {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: clamp(10rem, 25vw, 37rem);
+    height: 5.2rem; 
+    border-radius: 0.5rem; 
+    background: linear-gradient(90deg, #FE0D65 0%, #FF5856 99.55%);
+}
+
+.failure-message .box.large-box {
+    height: 7rem;
+}
+
+.failure-message .box span {
+    font-size: 2rem; 
+    font-weight: 400; 
+    margin: 0rem 2rem; 
+    width: 25rem
+}
+
+.failure-message .box img {
+    margin: 0rem 2rem; 
+    cursor: pointer;
+}
+
+.failure-message .progress-bar {
+    width: clamp(10rem, 25vw, 37rem);
+    height: 1rem; 
+    margin: 1rem 0rem; 
+    background-color: #443D63; 
+    border-radius: 0.5rem;
+}
+
+.failure-message .progress-bar .current-progress {
+    width: 65%; 
+    height: 1rem; 
+    border-radius: 0.5rem; 
+    background: linear-gradient(0deg, #FF5B55 0%, #FE0F64 121.75%); 
+    animation: condense 5s ease-in-out forwards;
+}
+
+.success-message {
+    width: clamp(10rem, 25vw, 37rem);
+    height: 7.2rem;
+    margin-bottom: 3rem;
+    /* animation: fade-out 5s ease-in-out forwards; */
+}
+
+.success-message .box {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: clamp(10rem, 25vw, 37rem);
+    height: 5.2rem; 
+    border-radius: 0.5rem; 
+    background: linear-gradient(90deg, #05A65B 0%, #88DE52 99.55%);
+}
+
+.success-message .box.large-box {
+    height: 7rem;
+}
+
+.success-message .box span {
+    font-size: 2rem; 
+    font-weight: 400; 
+    margin: 0rem 2rem; 
+    width: 25rem
+}
+
+.success-message .box img {
+    margin: 0rem 2rem; 
+    cursor: pointer;
+}
+
+.success-message .progress-bar {
+    width: clamp(10rem, 25vw, 37rem);
+    height: 1rem; 
+    margin: 1rem 0rem; 
+    background-color: #443D63; 
+    border-radius: 0.5rem;
+}
+
+.success-message .progress-bar .current-progress {
+    width: 65%; 
+    height: 1rem; 
+    border-radius: 0.5rem; 
+    background: linear-gradient(0deg, #05A65B 0%, #88DE52 121.75%);
+    animation: condense 5s ease-in-out forwards;
+}

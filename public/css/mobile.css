@@ -22,6 +22,77 @@
         height: clamp(3rem, 2vw, 5rem);
         font-size: clamp(1rem, 5vw, 1.8rem);
     }
+
+    /* Notifications */
+
+    body .notifications {
+        top: 0rem;
+        right: 0rem;
+    }
+
+    .failure-message {
+        width: 100vw;
+        height: clamp(3.5rem, 30vw, 7rem);
+        margin-bottom: 0rem;
+        animation: fly-in 750ms ease-in-out forwards;
+    }
+    
+    .failure-message .box {
+        justify-content: center;
+        height: clamp(3.5rem, 30vw, 7rem);
+        width: 100vw;
+        border-radius: 0rem;
+        border-bottom: 3px solid #fff; 
+    }
+    
+    .failure-message .box span {
+        font-size: clamp(1rem, 5vw, 1.8rem);
+        text-align: left;
+    }
+    
+    .failure-message .box img {
+        width: clamp(0.7rem, 7vw, 1.4rem);
+        margin: 0;
+        margin-right: 1rem;
+    }
+    
+    .failure-message .progress-bar {
+        display: none;
+    }
+    
+    .success-message {
+        width: 100vw;
+        height: clamp(3.5rem, 30vw, 7rem);
+        margin-bottom: 0rem;
+        animation: fly-in 750ms ease-in-out forwards;
+    }
+    
+    .success-message .box {
+        justify-content: center;
+        height: clamp(3.5rem, 30vw, 7rem);
+        width: 100vw;
+        border-radius: 0rem;
+        border-bottom: 3px solid #fff; 
+    }
+    
+    .success-message .box.large-box {
+        height: 7rem;
+    }
+    
+    .success-message .box span {
+        font-size: clamp(1rem, 5vw, 1.8rem);
+        text-align: left;
+    }
+    
+    .success-message .box img {
+        width: clamp(0.7rem, 7vw, 1.4rem);
+        margin: 0;
+        margin-right: 1rem;
+    }
+    
+    .success-message .progress-bar {
+        display: none;
+    }
 }
 
 @media (max-width: 560px) {

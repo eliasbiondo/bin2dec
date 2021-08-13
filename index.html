@@ -24,7 +24,9 @@
             <header>
                 <div class="header-title">
                     <h1 class="app-name">Bin2Dec</h1>
-                    <img src="public/images/icons/git.svg" alt="GitHub logo">
+                    <a href="https://github.com/eliasbiondo/bin2dec" target="blank_">
+                        <img src="public/images/icons/git.svg" alt="GitHub logo">
+                    </a>
                 </div>
                 <div class="header-description">
                     <p>Your binary to decimal calculator</p>
@@ -70,6 +72,26 @@
 
     <!-- Notifications -->
     <div class="notifications">
+
+        <div class="failure-message" id="failure-message-1">
+            <div class="box">
+                <span>No value to copy!</span>
+                <img src="public/images/icons/close_message.svg" onclick="closeNotification('#failure-message-',1)">
+            </div>
+            <div class="progress-bar">
+                <div class="current-progress"></div>
+            </div>
+        </div>
+
+        <div class="success-message" id="success-message-1">
+            <div class="box">
+                <span>Copied to clipboard :)</span>
+                <img src="public/images/icons/close_message.svg" onclick="closeNotification('#success-message-',1)">
+            </div>
+            <div class="progress-bar">
+                <div class="current-progress"></div>
+            </div>
+        </div>
     </div>
 
     
